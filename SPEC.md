@@ -247,6 +247,11 @@ Canvas-composed 1080×1350 PNG (no screen capture, no libraries):
 
 ## 8b. Keep-your-collection bridge (web → app)
 
+The Sanctum App logo (full lockup, transparent PNG) appears: top-center on the
+end screen (above the "Build Your House in Sanctum App Now" title), top-center on
+both canvas share compositions, and top-left on the static per-card share images
+and the og preview.
+
 End screen has a primary CTA "Keep this collection" that opens a modal with:
 - A **pull claim code** (`SP-` + each of the 5 card indices as 2-char base36 +
   a mod-36 checksum char, uppercased) shown in a dashed code box (`user-select: all`).
