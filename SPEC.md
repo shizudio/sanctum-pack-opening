@@ -59,7 +59,7 @@ cut at the outline — it decapitates the crest. Instead:
    bleed color (Σ|Δrgb| > 30). Bbox of content = outline + protruding crest.
 2. Pad the bbox by **3% of its width** on all sides (slim frame of the bleed color
    remains — it reads as a rarity-colored border and is intentional).
-3. Normalize every card to aspect ratio **0.695** by growing the crop into the bleed,
+3. Normalize every card to aspect ratio **0.7177** (v2 set) by growing the crop into the bleed,
    centered.
 4. Export 600px wide, JPEG q80 (~45–55KB each).
 
