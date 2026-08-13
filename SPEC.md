@@ -307,6 +307,13 @@ Legendary), and three actions:
     called inside a user gesture (we use the tear's pointerdown).
 12. `prefers-reduced-motion`: disable bob, idle shimmer, burst, and gyro; keep
     tap-to-advance and flip.
+13. **Social crawlers cannot read huge pages.** X/Twitterbot times out on the
+    multi-MB single-file app, so link cards silently fail even with correct meta.
+    Serve crawlers a tiny meta-only page via user-agent rewrite (Vercel
+    `vercel.json` rewrites: UA regex -> `/card.html`; humans -> `/app.html`).
+    Note: Vercel serves a static `index.html` before rewrites run — exclude it
+    with `.vercelignore` so the rewrite chain owns `/`. Deploy routine: copy the
+    build to BOTH `index.html` (GitHub Pages) and `app.html` (Vercel).
 
 ---
 
