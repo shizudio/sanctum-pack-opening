@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(Twitterbot|facebookexternalhit|Slackbot|Discordbot|LinkedInBot|WhatsApp|TelegramBot|Pinterest|vkShare).*"
+        }
+      ],
+      "destination": "/card.html"
+    }
+  ]
+}
