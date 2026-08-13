@@ -262,6 +262,23 @@ Login: Sign in with Apple + Google in-app; redeem is per-account.
 
 ---
 
+## 8c. Post-celebration share modal (Epic + Legendary)
+
+150ms after the celebration finishes, a share sheet modal appears over the reveal:
+card thumbnail, "RARITY \u00b7 Name" title, subtitle ("A 1-in-12 pull. Show it off" for
+Legendary), and three actions:
+- **Post on X** \u2014 opens `https://twitter.com/intent/tweet?text=...&url=...` with
+  prefilled brag text + the site URL. Note: web intents cannot attach images; the
+  link unfurls via the page's Twitter Card meta (`summary_large_image` +
+  `og:image` pointing at `/preview.jpg`, 1200\u00d7630).
+- **Share image\u2026** \u2014 composes a single-card 1080\u00d71350 canvas (rarity-colored
+  glow behind the card, title, footer), then the same preview-overlay delivery as
+  \u00a78 (native share sheet on mobile \u2014 picking X there DOES attach the image \u2014
+  download elsewhere).
+- **Continue** \u2014 dismisses, flow resumes.
+
+---
+
 ## 9. Gotchas (bugs we actually hit — do not repeat)
 
 1. **Invalid CSS unit math kills the whole transform.** `calc(var(--drag) / 40 × −1deg)`
