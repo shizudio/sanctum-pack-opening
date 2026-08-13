@@ -25,10 +25,11 @@ Four screens, in order:
    full-size inspector (tilt with pointer/gyro, tap to flip to card back). Buttons:
    "📸 Save my pull" (share-image composer) and "Open another pack".
 
-Stage background: flat brand blue `#30AAFF`. No gradients or decoration — the pack
-and cards carry the detail. Text on the blue is **black** (8.3:1 contrast — white
-fails WCAG at 2.5:1 on this hue, so white text is reserved for dark surfaces like
-the inspector backdrop and the pack). Dots black; buttons white with black text
+Stage background: flat light `#e9eef9`. No gradients or decoration — the pack and
+cards carry the detail. Text on the background is **black** (18:1 contrast); white
+text is reserved for dark surfaces like the inspector backdrop and the pack.
+(Brand blue `#30AAFF` was tried and reverted — if reintroduced, note white text on
+it fails WCAG at 2.5:1; black passes at 8.3:1.) Dots black; buttons white with black text
 and a 3px black `:focus-visible` outline. Celebration pill text darkened for AA:
 legendary `#6b4a00`, epic `#5b21b6`. Rarity tag has `role="status" aria-live="polite"`;
 progress dots are `aria-hidden`. The anticipation veil is a radial bloom
