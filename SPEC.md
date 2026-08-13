@@ -151,9 +151,9 @@ Card corners: radius 16px via container clip. iOS-style shadows everywhere:
 
 When the NEXT card in the stack is Epic or Legendary, the reveal gets a rarity tell:
 
-1. As the current card flies off, a full-screen white veil fades in at **+110ms**
-   (150ms ease-in) — the stack is face-up, so the veil must cover the screen
-   *during* the fly-off or the next card's face leaks early.
+1. The veil fades in FIRST (150ms ease-in), and the current card's dismissal is
+   **delayed 170ms so it happens hidden under the white** — the stack is face-up,
+   so any other ordering leaks the next card's face early.
 2. White hold: **Epic 400ms** (clean white) / **Legendary 850ms** with a breathing
    warm-gold radial pulse (`rgba(255,224,150,.55)`, scale 1→1.06, 1s loop) so the
    hold never reads as frozen.
@@ -166,6 +166,15 @@ Commons/Rares keep instant reveals — the contrast is what makes the tell preci
 `prefers-reduced-motion`: skip the veil entirely (plain reveal).
 QA hooks: `window.__rigLast = 'Legendary'` forces the next pull's last slot;
 `window.__celebrate(rarity)` previews celebrations.
+
+Mobile notes: the page needs `<meta name="viewport" content="width=device-width,
+initial-scale=1, viewport-fit=cover">` and `overscroll-behavior: none`. iOS motion
+permission silently auto-denies if ever declined — show an explicit "Enable tilt"
+button on the reveal screen whenever no orientation events have arrived within
+~1.2s on a coarse-pointer device; a denied re-request should point to
+Settings > Safari. Size the inspector card in JS from `innerWidth/innerHeight`
+with the ratio locked to 0.695 — CSS `min()`+`aspect-ratio`+`dvh` combos are
+fragile on iOS Safari.
 
 ## 6. Celebrations (Epic + Legendary)
 
