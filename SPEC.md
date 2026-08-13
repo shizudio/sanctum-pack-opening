@@ -25,7 +25,11 @@ Four screens, in order:
    full-size inspector (tilt with pointer/gyro, tap to flip to card back). Buttons:
    "📸 Save my pull" (share-image composer) and "Open another pack".
 
-Stage background: flat light `#e9eef9`. No gradients or decoration — the pack and
+Stage background: pure white `#FFFFFF` (matches sanctum.so). End-screen and modal
+buttons stack vertically, full width (`min(86vw, 320px)`), pill radius. Primary
+buttons are brand blue `#30AAFF` with white 800-weight text (active `#1E96EB`);
+secondary buttons white with 1.5px `rgba(0,0,0,.14)` border and black text.
+Previously `#e9eef9`. No gradients or decoration — the pack and
 cards carry the detail. Text on the background is **black** (18:1 contrast); white
 text is reserved for dark surfaces like the inspector backdrop and the pack.
 (Brand blue `#30AAFF` was tried and reverted — if reintroduced, note white text on
