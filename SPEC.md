@@ -147,6 +147,26 @@ Card corners: radius 16px via container clip. iOS-style shadows everywhere:
 
 ---
 
+## 5b. Anticipation white-out (Epic + Legendary reveals)
+
+When the NEXT card in the stack is Epic or Legendary, the reveal gets a rarity tell:
+
+1. As the current card flies off, a full-screen white veil fades in at **+110ms**
+   (150ms ease-in) — the stack is face-up, so the veil must cover the screen
+   *during* the fly-off or the next card's face leaks early.
+2. White hold: **Epic 400ms** (clean white) / **Legendary 850ms** with a breathing
+   warm-gold radial pulse (`rgba(255,224,150,.55)`, scale 1→1.06, 1s loop) so the
+   hold never reads as frozen.
+3. Veil fades out (450ms) while the card fades in **already zoomed** — Epic 1.07,
+   Legendary 1.14 — settling to 1.0 over 550ms (`cubic-bezier(.25,.6,.3,1)`).
+4. The celebration (§6) + heavy haptic fire **on landing**, not during the white.
+   A light 20ms haptic tick fires when the veil hits.
+
+Commons/Rares keep instant reveals — the contrast is what makes the tell precious.
+`prefers-reduced-motion`: skip the veil entirely (plain reveal).
+QA hooks: `window.__rigLast = 'Legendary'` forces the next pull's last slot;
+`window.__celebrate(rarity)` previews celebrations.
+
 ## 6. Celebrations (Epic + Legendary)
 
 Overlay (z60, non-interactive), parametrized per rarity. Shared pieces: radial flash
