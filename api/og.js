@@ -19,7 +19,7 @@ export default async function handler(req) {
     return e('img', {
       src: origin + '/cards/' + slug + '.jpg',
       width: 190,
-      height: 273,
+      height: 265,
       style: {
         position: 'absolute',
         left: 845 + off * 82 - 95,
