@@ -147,17 +147,23 @@ Card corners: radius 16px via container clip. iOS-style shadows everywhere:
 
 ---
 
-## 6. Legendary celebration
+## 6. Celebrations (Epic + Legendary)
 
-Overlay (z60, non-interactive, auto-remove after 2.6s):
-- Gold radial flash filling the screen (`rgba(255,214,110,.55)` center, 1.6s fade).
-- Banner "✨ LEGENDARY PULL! ✨" — gold pill (`#fff8e2→#ffe9a8`, border `#f4c95d`,
-  text `#b8860b`), springs down from top at 13% height, holds, fades at 2.4s.
-- 22 particles from card center: mix of glow dots and 8-point stars (`#ffd76e`),
-  random angle, distance 90–290px (y × 0.8, biased upward −40px), random rotation
-  ±130°, staggered 0–350ms, 1.5s flight fading out.
+Overlay (z60, non-interactive), parametrized per rarity. Shared pieces: radial flash
+tint at 50%/45% (1.6s fade), banner pill springing down at 13% height, particle burst
+from card center (mix of glow dots and 8-point stars, random angle, y x0.8 biased
+upward -50px, rotation +/-150 deg, staggered 0-450ms, 1.7s flight).
 
----
+| | Epic | Legendary |
+|---|---|---|
+| Banner | "EPIC PULL!" | "LEGENDARY PULL!" |
+| Pill | `#f8f0ff - #ecd9ff`, border `#c9a2ff`, text `#7c3aed` | `#fff8e2 - #ffe9a8`, border `#f4c95d`, text `#b8860b` |
+| Flash tint | `rgba(190,140,255,.5)` | `rgba(255,214,110,.55)` |
+| Sparks | 20, purples + white | 44, gold/white/pink/mint/blue/lilac |
+| Spark distance | 90-290px | 90-390px |
+| Rainbow bg | none | full-screen pastel conic wash (6 hues @ ~78% L, .5 alpha), rotates 55 deg over 2.8s, opacity 0 - .5 - 0 |
+| Lifetime | 2.4s | 3.0s |
+| Haptic | [35,50,35] | [50,60,50,60,80] |
 
 ## 7. "Your pull" fan carousel
 
