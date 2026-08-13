@@ -49,18 +49,29 @@ export default async function handler(req) {
         style: {
           position: 'absolute',
           left: 70,
-          top: 220,
-          fontSize: 52,
+          top: 185,
+          fontSize: 56,
           fontWeight: 800,
           color: '#000',
           display: 'flex',
         },
-      }, 'MY SANCTUM PULL!'),
+      }, 'MY SANCTUM'),
       e('div', {
         style: {
           position: 'absolute',
           left: 70,
-          top: 310,
+          top: 253,
+          fontSize: 56,
+          fontWeight: 800,
+          color: '#000',
+          display: 'flex',
+        },
+      }, 'PULL!'),
+      e('div', {
+        style: {
+          position: 'absolute',
+          left: 70,
+          top: 352,
           fontSize: 30,
           color: 'rgba(0,0,0,.75)',
           display: 'flex',
