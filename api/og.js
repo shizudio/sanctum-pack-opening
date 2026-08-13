@@ -18,14 +18,14 @@ export default async function handler(req) {
     const off = i - mid;
     return e('img', {
       src: origin + '/cards/' + slug + '.jpg',
-      width: 210,
-      height: 302,
+      width: 190,
+      height: 273,
       style: {
         position: 'absolute',
-        left: 700 + off * 88 - 105,
-        top: 170 + Math.abs(off) * off * 7 + Math.abs(off) * 14,
-        borderRadius: 14,
-        transform: 'rotate(' + off * 10 + 'deg)',
+        left: 845 + off * 82 - 95,
+        top: 168 + off * off * 9,
+        borderRadius: 13,
+        transform: 'rotate(' + off * 9 + 'deg)',
         boxShadow: '0 14px 34px rgba(20,30,70,.25)',
       },
     });
@@ -49,8 +49,8 @@ export default async function handler(req) {
         style: {
           position: 'absolute',
           left: 70,
-          top: 200,
-          fontSize: 62,
+          top: 220,
+          fontSize: 52,
           fontWeight: 800,
           color: '#000',
           display: 'flex',
@@ -60,8 +60,8 @@ export default async function handler(req) {
         style: {
           position: 'absolute',
           left: 70,
-          top: 300,
-          fontSize: 32,
+          top: 310,
+          fontSize: 30,
           color: 'rgba(0,0,0,.75)',
           display: 'flex',
         },
