@@ -241,6 +241,27 @@ Canvas-composed 1080×1350 PNG (no screen capture, no libraries):
 
 ---
 
+## 8b. Keep-your-collection bridge (web → app)
+
+End screen has a primary CTA "Keep this collection" that opens a modal with:
+- A **pull claim code** (`SP-` + each of the 5 card indices as 2-char base36 +
+  a mod-36 checksum char, uppercased) shown in a dashed code box (`user-select: all`).
+- "Get the Sanctum app" — tries the custom scheme
+  `sanctum://redeem?code=<code>` first, then after 1.2s (if the page is still
+  visible) falls back to `https://sanctum.so/app?redeem=<code>`.
+- "Copy code" (Clipboard API with selection fallback).
+
+Production architecture (in order of effort):
+1. **Universal Links / App Links** on `sanctum.so/redeem?pull=<code>` — opens the
+   app when installed, else App Store landing.
+2. **Deferred deep linking** (Branch/AppsFlyer/Adjust) to carry the pull payload
+   through a fresh install so redeem is automatic after first login.
+3. **Claim codes** (shipped here) reuse the same redeem rail as the physical cards'
+   QR codes; server must enforce one-time use and map code → 5 card IDs.
+Login: Sign in with Apple + Google in-app; redeem is per-account.
+
+---
+
 ## 9. Gotchas (bugs we actually hit — do not repeat)
 
 1. **Invalid CSS unit math kills the whole transform.** `calc(var(--drag) / 40 × −1deg)`
